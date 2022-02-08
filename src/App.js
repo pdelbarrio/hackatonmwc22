@@ -1,10 +1,10 @@
-import PersonalData from './components/PersonalData';
+import Form from './components/Form';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <PersonalData/>
+      <Form/>      
     </div>
   );
 }

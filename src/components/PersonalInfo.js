@@ -1,15 +1,17 @@
-import React, {useEffect} from 'react';
+import React, {useState} from 'react';
 import { Formik } from 'formik';
 import { TextArea, Button } from 'semantic-ui-react';
 import Select from 'react-select';
 import csc from "country-state-city";
 import * as Yup from "yup";
-import './PersonalData.css';
+import './PersonalInfo.css';
 
+export default function PersonalInfo(props) {  
 
-
-export default function PersonalData() {  
-
+    const handleSubmit = (values) => {
+        props.next(values);
+    };
+   
     // const countries = csc.getAllCountries();    
 
     // const updatedCountries = countries.map((country) => ({
@@ -27,18 +29,12 @@ export default function PersonalData() {
 
     // useEffect(() => {}, [values])
 
+ 
   return( 
-  <>
-    <h1>PERSONAL DATA</h1>
+  <div className='form'>
+    
     <Formik 
-        initialValues={{
-            email: "",
-            fullname: "",
-            description: "",
-            country: "",
-            // state: "",
-            city: ""
-        }}
+        initialValues={props.data}        
         // validationSchema={Yup.object(validationSchema())}
         validate={(values) => {
             let errors = {};
@@ -62,17 +58,10 @@ export default function PersonalData() {
             }
             return errors;
         }}
-        onSubmit={(values, {resetForm}) => {
-            
-        //    alert(JSON.stringify(values, null, 2));
-        //    actions.setSubmitting(true)
-        //    console.log(values, actions);
-        resetForm();
-         console.log("Formulario enviado")
-         console.log(values)
-    }}>   
+        onSubmit={handleSubmit}
+        >   
         {( {values, handleSubmit, handleChange, handleBlur, errors, touched, setValues, setFieldValue}) => 
-        (<form className="personal-data" onSubmit={handleSubmit}>                       
+        (<form className="personal-data"  onSubmit={handleSubmit}>                       
                 <label htmlFor='email'>Email</label>
                 <div className='field_input'>
                     <input 
@@ -183,22 +172,14 @@ export default function PersonalData() {
                     ): null}
                 </div>
                 </div>
-                <Button classname="next_button" type="submit" primary>NEXT</Button>   
+                {/* <button classname="next_button" type="submit">NEXT</button>    */}
                 {/* <p>{JSON.stringify(csc.get)}</p>  */}
+                <div className='footer'>
+                    <button type="submit">Next</button>
+                </div>
         </form>)}
     </Formik>
-  </>
+  </div>
   );
 }
 
-
-// function validationSchema(){
-//     return{
-//         email: Yup.string().email("Not a valid email account").required("A valid email address is required"),
-//         fullname: Yup.string().required("It is necessary to enter the full name"),
-//         description: Yup.string().required("A short description is necessary"),
-//         country: Yup.string().required("Country is required"),
-//         state: Yup.string().required("State is required"),
-//         city: Yup.string().required("City is required")        
-//     }
-// }
