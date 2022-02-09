@@ -1,15 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Formik } from 'formik';
 import './ProfessionalInfo.css';
 
 export default function ProfessionalInfo(props) {
   const handleSubmit = (values) => {
-    props.next(values, true);
+    props.next(values, false);
   }
 
-  const submitData = (values) => {
-    console.log("submit data", values);
-  }
+  const selectedTags = tags => {
+		console.log(tags);
+	};
+
   return (
   <div className='form'>
     <Formik
@@ -59,14 +60,17 @@ export default function ProfessionalInfo(props) {
                         error={errors.skills}
                     />                    
           </div>
+         
           <div className='footer'>
             <button type="button" onClick={() => props.prev(values)}>
               Back
             </button>
-            <button type="button" onClick={() => submitData(values)}>Submit</button>
+            <button type="button" onClick={() => props.next(values)}>Submit</button>
           </div>
       </form>)}
 
     </Formik>
   </div>);
 }
+
+

@@ -142,3 +142,8 @@ input {
 input:focus {
   border: 3px solid rgb(98, 0, 255);
 }
+
+.avatar{  
+  height: 1px;
+}
+

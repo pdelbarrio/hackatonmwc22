@@ -14,21 +14,22 @@ export default function Form() {
     city: "",
     experience: "",
     sector: "",
-    skills:""
+    skills:"",
+    avatar: ""
 
   });
 
-  const FormTitles = ["Personal Info", "Professional Info", "User Profile"]
+  const FormTitles = ["Personal Info", "Professional Info", "User Profile"];
 
 
-const handleNextStep = (newData, final = false) => {
-    setData((prev) => ({ ...prev, ...newData}));
-    
-    // if (final){
-    //     submitData(newData)
-    // }
-    
+const handleNextStep = (newData) => {
+    setData((prev) => ({ ...prev, ...newData}));    
     setStep((prev) => prev + 1);
+}
+
+const handleFinalStep = (newData) => {
+    setData((prev) => ({...prev, ...newData}));
+    setStep(2);    
 }
 
 const handlePrevStep = (newData) => {
@@ -36,40 +37,27 @@ const handlePrevStep = (newData) => {
     setStep((prev) => prev - 1);
 }
 
+const handlePrevLastStep = () =>{
+    setStep(1);
+}
+
 const PageDisplay = [
   <PersonalInfo next={handleNextStep} data={data} />,
-  <ProfessionalInfo next={handleNextStep} prev={handlePrevStep} data={data}/>,
-  <UserProfile prev={handlePrevStep} data={data} />
+  <ProfessionalInfo next={handleFinalStep} prev={handlePrevStep} data={data}/>,
+  <UserProfile prev={handlePrevLastStep} data={data} />
 ];
 
 
   return (
   <div className='form'>
     <div className='progress'>
-        <div style={{width: step === 0 ? "50%" : "100%"}}></div>
+        <div style={{width: step === 0 ? "33%" : step === 1 ? "66%" : "100%"}}></div>
     </div>
     <div className='form-container'>
         <div className='header'>
             <h1>{FormTitles[step]}</h1>
         </div>
-        <div className='body'>{PageDisplay[step]}</div>
-        <div className='footer'>
-            {/* <button disabled={step == 0}
-                onClick={() =>{
-                    setStep((currStep) => currStep -1);
-                }}>Prev</button>
-            <button onClick={() =>{
-                if (step === 1){
-                    alert("FORM SUBMITED");
-                    console.log(formData)
-                }else{
-                    setStep((currStep) => currStep + 1);
-                }
-            }}
-            >
-                {step === 1 ? "Submit" : "Next"}
-            </button> */}
-        </div>
+        <div className='body'>{PageDisplay[step]}</div>      
     </div>
   </div>);
 }
