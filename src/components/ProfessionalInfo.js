@@ -8,19 +8,19 @@ export default function ProfessionalInfo({next, prev, data, setData}) {
     next(data);
   }
 
-  const TagsInput = (props) => {
-    const [tags, setTags] = useState(props.tags);
+  const TagsInput = (props) => {    
+
     const deleteTags = indexToDelete => {
-      setTags([...tags.filter((_, index) => index !== indexToDelete)]);
+      let newSkills = data.skills.filter((_, index) => index !== indexToDelete);
+      setData((prevData) => ({...prevData, skills: newSkills}));      
     };
+
     const addTags = (event) => {
       if (event.target.value !== ""){
-        // setTags([...tags, event.target.value]);
-        setData((prevData) => ({...prevData, skills: [...prevData.skills, event.target.value]}));
-        // selectedTags([...tags, event.target.value]);
-        // event.target.value = "";
+       setData((prevData) => ({...prevData, skills: [...prevData.skills, event.target.value]}));
+        
       }
-    };
+    };    
     return (
       <div className='tags-input'>
         <ul id="tags">
@@ -43,31 +43,22 @@ export default function ProfessionalInfo({next, prev, data, setData}) {
       </div>
     )
   }
+  
 
-  const selectedTags = tags => {
-		console.log("tags",tags);  
-	};
+  const handleChange = (event)  =>{
+    const { name, value } = event.target;
+    setData((prevData) => {
+      return {
+        ...prevData,
+        [name]: value,
+      };
+    });
+    console.log("handle");
+  }
 
   return (
-  <div className='form'>
-  
-    <Formik
-      initialValues={data}
-      validate={(values) => {
-        let errors = {};
-
-        if(!values.experience){
-          errors.experience = "Must especify years of experience";
-        }else if(!values.sector){
-          errors.sector = "Select your sector";
-        }else if(!values.skills){
-          errors.skills = "Must especify at least one skill";
-        }
-        return errors;
-      }}      
-    >
-      {( {values, handleChange, handleBlur, errors, touched}) =>
-        (<form className=''  >
+  <div className='form'> 
+        <form className=''  >
         <label htmlFor='experience'>Years of experience</label>
         <div className='field_input'>
                     <input 
@@ -75,24 +66,18 @@ export default function ProfessionalInfo({next, prev, data, setData}) {
                         name="experience"
                         id="experience"
                         placeholder="Experience"
-                        value={values.experience}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        error={errors.experience}
-                    />
-                    
+                        value={data.experience}
+                        onChange={handleChange}                        
+                    />                    
                 </div>
-                {touched.experience && errors.experience ? (
-                        <div className='error'>{errors.experience}</div>
-                    ): null}
+                
                 
         <label htmlFor='sector'>Sector</label>
           <div className='field_input'>                   
                     <select
                       name="sector"
-                      value={values.sector}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
+                      value={data.sector}
+                      onChange={handleChange}                     
                       style={{ display: 'block' }}
                     >
                       <option value="" label="Select your sector" />
@@ -101,39 +86,22 @@ export default function ProfessionalInfo({next, prev, data, setData}) {
                       <option value="Mobile" label="Mobile" />
                       <option value="Data Science" label="Data Science" />
                     </select>
-                    {touched.sector && errors.sector ? (
-                        <div className='error'>{errors.sector}</div>
-                    ): null}
+                    
             </div>
         <label htmlFor='skills'>Skills</label>
-          <div className='tags_input'>
-                    {/* <input 
-                        type="text"
-                        name="skills"
-                        id="skills"
-                        placeholder="Skills"
-                        value={values.skills}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        error={errors.skills}
-                    />   
-                    {touched.skills && errors.skills ? (
-                        <div className='error'>{errors.skills}</div>
-                    ): null}  */}
-              {/* <TagsInput selectedTags={selectedTags} value={selectedTags} tags={['test', 'test1']} /> */}
-              <TagsInput selectedTags={selectedTags} tags={[]} value={selectedTags}  />
+          <div className='tags_input'>                   
+              <TagsInput  />
           </div>
          
           <div className='footer'>
-            <button type="button" onClick={() => prev(values)}>
+            <button type="button" onClick={() => prev(data)}>
               Back
             </button>
             <button type="button" onClick={handleSubmit}>Submit</button>
           </div>
-      </form>)}
-
-    </Formik>
-  </div>);
+      </form>   
+  </div>
+  );
 }
 
 

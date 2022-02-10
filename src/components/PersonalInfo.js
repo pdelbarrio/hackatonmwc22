@@ -38,9 +38,7 @@ export default function PersonalInfo(props) {
         // validationSchema={Yup.object(validationSchema())}
         validate={(values) => {
             let errors = {};
-
-            // let validationExpression = "^[  ÀÈÌÒÙ àèìòù ÁÉÍÓÚ Ý áéíóúý ÂÊÎÔÛ âêîôû ÃÑÕ ãñõ ÄËÏÖÜŸ  äëïöüŸ \w\d\s-'.,&#@:?!()$\/]+$";
-
+            
             if(!values.email){
                 errors.email = "A valid email address is required";
             }else if(!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(values.email)){
