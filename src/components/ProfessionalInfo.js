@@ -1,6 +1,4 @@
-import React, {useState} from 'react';
-import { Formik } from 'formik';
-import './ProfessionalInfo.css';
+import React from 'react';
 
 export default function ProfessionalInfo({next, prev, data, setData}) {  
   
@@ -52,8 +50,7 @@ export default function ProfessionalInfo({next, prev, data, setData}) {
         ...prevData,
         [name]: value,
       };
-    });
-    console.log("handle");
+    });    
   }
 
   return (

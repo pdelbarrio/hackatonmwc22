@@ -41,7 +41,7 @@ const handlePrevLastStep = () =>{
 }
 
 const PageDisplay = [
-  <PersonalInfo next={handleNextStep} data={data} />,
+  <PersonalInfo next={handleNextStep} setData={setData} data={data} />,
   <ProfessionalInfo next={handleFinalStep} prev={handlePrevStep} setData={setData} data={data}/>,
   <UserProfile prev={handlePrevLastStep} data={data} />
 ];
