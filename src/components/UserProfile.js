@@ -5,8 +5,8 @@ export default function UserProfile(props) {
   const { email, fullname, description, country, city, experience, sector, skills } = props.data;
  
   // const avatar = "https://thispersondoesnotexist.com/image";
-  // const avatar = `https://eu.ui-avatars.com/api/?name=${fullname}`;
-  const avatar = "https://robohash.org/whatever";
+  const avatar = `https://eu.ui-avatars.com/api/?name=${fullname}`;
+  // const avatar = "https://robohash.org/whatever";
 
   return (
   <div className='form'>
@@ -29,13 +29,13 @@ export default function UserProfile(props) {
       <span>City:</span> {city}
       </div>
       <div>
-      <span>Experience:</span> {experience}
+      <span>Experience:</span> {experience} years
       </div>
       <div>
       <span>Sector:</span> {sector}
       </div>
       <div>
-      <span>Skills:</span> {skills}
+      <span>Skills:</span> {skills.map(x => x)}
       </div>
 
 

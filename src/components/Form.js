@@ -14,7 +14,7 @@ export default function Form() {
     city: "",
     experience: "",
     sector: "",
-    skills:"",
+    skills: [],
     avatar: ""
 
   });
@@ -27,8 +27,7 @@ const handleNextStep = (newData) => {
     setStep((prev) => prev + 1);
 }
 
-const handleFinalStep = (newData) => {
-    setData((prev) => ({...prev, ...newData}));
+const handleFinalStep = () => {    
     setStep(2);    
 }
 
@@ -43,7 +42,7 @@ const handlePrevLastStep = () =>{
 
 const PageDisplay = [
   <PersonalInfo next={handleNextStep} data={data} />,
-  <ProfessionalInfo next={handleFinalStep} prev={handlePrevStep} data={data}/>,
+  <ProfessionalInfo next={handleFinalStep} prev={handlePrevStep} setData={setData} data={data}/>,
   <UserProfile prev={handlePrevLastStep} data={data} />
 ];
 
