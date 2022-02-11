@@ -1,13 +1,13 @@
-@import url(https://fonts.googleapis.com/css?family=Montserrat);
-
 .App {
-  background: rgb(0, 229, 255);
-  background: radial-gradient(
-    circle,
-    rgb(0, 179, 255) 0%,
-    rgb(16, 212, 199) 84%,
-    rgb(0, 221, 255) 100%
-  );
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(126, 213, 111, 0.1),
+      rgba(40, 180, 133, 0.1)
+    ),
+    url(./img/background.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
   width: 100vw;
   height: 100vh;
   display: grid;
@@ -17,7 +17,13 @@
 body {
   margin: 0%;
   padding: 0%;
-  font-family: montserrat, arial, verdana;
+  font-family: sans-serif;
+}
+
+.formtitle {
+  color: #fff;
+  background-color: rgb(194, 182, 22);
+  font-weight: 900;
 }
 
 .form {
@@ -27,11 +33,13 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: small;
+  font-weight: bolder;
 }
 
 .form-container {
   width: 400px;
-  height: 400px;
+  height: 500px;
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
@@ -62,45 +70,11 @@ body {
   background-color: rgb(0, 21, 255);
   font-weight: bold;
   color: white;
-  border: 0 none;  
+  border: 0 none;
   cursor: pointer;
   padding: 10px 5px;
   margin: 10px 5px;
   margin: 5px;
-}
-
-.sign-up-container {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.sign-up-container input {
-  margin: 5px;
-  width: 200px;
-  height: 40px;
-  padding-left: 5px;
-  font-size: 20px;
-}
-
-.personal-info-container {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.personal-info-container input {
-  margin: 5px;
-  width: 200px;
-  height: 40px;
-  padding-left: 5px;
-  font-size: 20px;
 }
 
 /* PROGRESS BAR */
@@ -114,36 +88,130 @@ body {
 .progress div {
   width: 33.3%;
   height: 100%;
-  background-color: rgb(98, 0, 255);
-}
-
-.other-info-container {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.other-info-container input {
-  margin: 5px;
-  width: 200px;
-  height: 40px;
-  padding-left: 5px;
-  font-size: 20px;
+  background-color: rgb(194, 182, 22);
 }
 
 input {
-  border: 2px solid rgb(98, 0, 255);
+  border: 2px solid rgb(138, 152, 155);
   border-radius: 5px;
 }
 
 input:focus {
-  border: 3px solid rgb(98, 0, 255);
+  border: 3px solid rgb(192, 194, 66);
 }
 
-.avatar{  
-  
+.description-input {
+  height: 50px;
 }
+.error {
+  font-size: smaller;
+  font-weight: bold;
+  color: red;
+}
+/*styling tags*/
+.tags-input {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  min-height: 48px;
+  width: 300px;
+  padding: 0 8px;
+  border: 1px solid rgb(214, 216, 218);
+  border-radius: 6px;
+  font-weight: 100 !important;
+}
+.tags-input #input {
+  flex: 1;
+  border: none;
+  height: 46px;
+  font-size: 14px;
+  padding: 4px 0 0 0;
+}
+#tags {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 8px 0 0 0;
+}
+.tag {
+  width: auto;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  padding: 0 8px;
+  font-size: 14px;
+  list-style: none;
+  border-radius: 6px;
+  margin: 0 8px 8px 0;
+  background: #0052cc;
+}
+.tag-list {
+  width: auto;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  padding: 0 6px;
+  font-size: 14px;
+  list-style: none;
+  border-radius: 6px;
+  margin: 0 8px 8px 0;
+  background: #79808a;
+}
+.tag-title {
+  margin-top: 3px;
+}
+.tag-close-icon {
+  display: block;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  text-align: center;
+  font-size: 14px;
+  margin-left: 8px;
+  color: #0052cc;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+}
+.tags-profile {
+  display: flex;
+  flex-wrap: wrap;
+  font-weight: 100 !important;
+}
+.footer {
+  display: flex;
+  flex-direction: row;
+}
+.profile {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
+  align-items: stretch;
+  font-size: smaller;
+  font-weight: 100 !important;
+}
+.profile-title {
+  font-weight: bold;
+}
+.profile-section {
+  display: flex;
+  /* align-items: flex-end; */
+  justify-content: space-between;
+  padding: 5px;
+}
+.profile-main {
+}
+.profile-skills {
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+.avatar {
+  height: 10px;
+}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import csc from "country-state-city";
 import * as Yup from "yup";
 
@@ -18,6 +18,20 @@ export default function PersonalInfo({ next, data, setData }) {
       setFormError(true);
     }
   };
+  useEffect(() => {
+    let newErrors = {};
+    let errorsKeys = Object.keys(errors);
+    Object.entries(data).map((field) => {
+      if (errorsKeys.includes(field[0]) && field[1] !== "") {
+        const key = field[0];
+        newErrors = {
+          ...newErrors,
+          [key]: undefined,
+        };
+      }
+    });
+    setErrors(newErrors);
+  }, []);
 
   //Returns if there is an error on any input
   const isValid = () => {
@@ -65,7 +79,7 @@ export default function PersonalInfo({ next, data, setData }) {
             value={data.email}
             onChange={handleChange}
           />
-          {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
+          {errors.email && <p className="error">{errors.email}</p>}
         </div>
         <label htmlFor="fullname">Full name</label>
         <div className="field_input">
@@ -77,9 +91,10 @@ export default function PersonalInfo({ next, data, setData }) {
             value={data.fullname}
             onChange={handleChange}
           />
+          {errors.fullname && <p className="error">{errors.fullname}</p>}
         </div>
         <label htmlFor="description">Description</label>
-        <div className="description_input">
+        <div className="description-input">
           <input
             type="textarea"
             name="description"
@@ -88,6 +103,7 @@ export default function PersonalInfo({ next, data, setData }) {
             value={data.description}
             onChange={handleChange}
           />
+          {errors.description && <p className="error">{errors.description}</p>}
         </div>
         {/* <div>
                 <Select
@@ -128,6 +144,7 @@ export default function PersonalInfo({ next, data, setData }) {
               value={data.country}
               onChange={handleChange}
             />
+            {errors.country && <p className="error">{errors.country}</p>}
           </div>
           <label htmlFor="city">City</label>
           <div className="field_input">
@@ -139,16 +156,15 @@ export default function PersonalInfo({ next, data, setData }) {
               value={data.city}
               onChange={handleChange}
             />
+            {errors.city && <p className="error">{errors.city}</p>}
           </div>
         </div>
 
         <div className="footer">
+          {formError && <p className="error">All fields must be filled in</p>}
           <button type="button" onClick={handleSubmit}>
             Next
           </button>
-          {formError && (
-            <p style={{ color: "red" }}>All fields must be filled in</p>
-          )}
         </div>
       </form>
     </div>

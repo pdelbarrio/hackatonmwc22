@@ -1,47 +1,77 @@
-import React from 'react';
+import React from "react";
 
 export default function UserProfile(props) {
- 
-  const { email, fullname, description, country, city, experience, sector, skills } = props.data;
- 
+  const {
+    email,
+    fullname,
+    description,
+    country,
+    city,
+    experience,
+    sector,
+    skills,
+  } = props.data;
+
   // const avatar = "https://thispersondoesnotexist.com/image";
-  const avatar = `https://eu.ui-avatars.com/api/?name=${fullname}`;
-  // const avatar = "https://robohash.org/whatever";
+  // const avatar = `https://eu.ui-avatars.com/api/?name=${fullname}`;
+  const avatar = "https://robohash.org/whatever";
 
   return (
-  <div className='form'>
-      <div className='avatar'>
+    <div className="profile">
+      <div className="avatar">
         <img src={avatar} alt="" />
       </div>
-      <div>
-        <span>Email:</span> {email}
-      </div>
-      <div>
-      <span>Fullname:</span> {fullname}
-      </div>
-      <div>
-      <span>Description:</span> {description}
-      </div>
-      <div>
-      <span>Country:</span> {country}
-      </div>
-      <div>
-      <span>City:</span> {city}
-      </div>
-      <div>
-      <span>Experience:</span> {experience} years
-      </div>
-      <div>
-      <span>Sector:</span> {sector}
-      </div>
-      <div>
-      <span>Skills:</span> {skills.map(x => x)}
+
+      <div className="profile-main">
+        <div className="profile-section">
+          <span className="profile-title">Email</span>
+          <div>{email}</div>
+        </div>
+        <div className="profile-section">
+          <span className="profile-title">Fullname</span>
+          <div>{fullname}</div>
+        </div>
+        <div className="profile-section">
+          <span className="profile-title">Description</span>
+          <div>{description}</div>
+        </div>
+        <div className="profile-section">
+          <span className="profile-title">Country</span>
+          <div>{country}</div>
+        </div>
+        <div className="profile-section">
+          <span className="profile-title">City</span>
+          <div>{city}</div>
+        </div>
+        <div className="profile-section">
+          <span className="profile-title">Experience</span>
+          <div>{experience} years</div>
+        </div>
+        <div className="profile-section">
+          <span className="profile-title">Sector</span>
+          <div>{sector}</div>
+        </div>
+        <div>
+          <span className="profile-title">Skills</span>
+          <div className="profile-skills">
+            <ul className="tags-profile">
+              {skills.map((skill, i) => {
+                return (
+                  <li className="tag-list" key={i}>
+                    {skill}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
       </div>
 
-
-      <div className='footer'>
-        <button type="submit" onClick={props.prev}>Back</button>
+      <div className="footer">
+        <button type="submit" onClick={props.prev}>
+          Back
+        </button>
+      </div>
     </div>
-    
-  </div>);
+  );
 }
