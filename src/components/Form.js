@@ -4,7 +4,7 @@ import ProfessionalInfo from './ProfessionalInfo';
 import UserProfile from './UserProfile';
 
 export default function Form() {
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState(0);  
   const [data, setData] = useState({
     email: "",
     fullname: "",
