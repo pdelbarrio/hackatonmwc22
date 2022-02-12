@@ -67,10 +67,10 @@ export default function PersonalInfo({ next, data, setData }) {
   };
 
   return (
-    <div className="form">
+    <div className="form-personal">
       <form className="personal-data">
         <label htmlFor="email">Email</label>
-        <div className="field_input">
+        <div className="field-input">
           <input
             type="text"
             id="email"
@@ -82,7 +82,7 @@ export default function PersonalInfo({ next, data, setData }) {
           {errors.email && <p className="error">{errors.email}</p>}
         </div>
         <label htmlFor="fullname">Full name</label>
-        <div className="field_input">
+        <div className="field-input">
           <input
             type="text"
             name="fullname"
@@ -136,7 +136,7 @@ export default function PersonalInfo({ next, data, setData }) {
                 </div> */}
         <div>
           <label htmlFor="country">Country</label>
-          <div className="field_input">
+          <div className="field-input">
             <input
               type="text"
               name="country"
@@ -148,7 +148,7 @@ export default function PersonalInfo({ next, data, setData }) {
             {errors.country && <p className="error">{errors.country}</p>}
           </div>
           <label htmlFor="city">City</label>
-          <div className="field_input">
+          <div className="field-input">
             <input
               type="text"
               name="city"
