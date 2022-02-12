@@ -94,8 +94,9 @@ export default function PersonalInfo({ next, data, setData }) {
           {errors.fullname && <p className="error">{errors.fullname}</p>}
         </div>
         <label htmlFor="description">Description</label>
-        <div className="description-input">
+        <div>
           <input
+            className="description-input"
             type="textarea"
             name="description"
             id="description"

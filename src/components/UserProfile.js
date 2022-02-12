@@ -13,8 +13,8 @@ export default function UserProfile(props) {
   } = props.data;
 
   // const avatar = "https://thispersondoesnotexist.com/image";
-  // const avatar = `https://eu.ui-avatars.com/api/?name=${fullname}`;
-  const avatar = "https://robohash.org/whatever";
+  const avatar = `https://eu.ui-avatars.com/api/?name=${fullname}`;
+  // const avatar = "https://robohash.org/whatever";
 
   return (
     <div className="profile">
