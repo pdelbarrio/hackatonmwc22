@@ -97,9 +97,10 @@ export default function PersonalInfo({ next, data, setData }) {
         <div>
           <input
             className="description-input"
-            type="textarea"
+            type="text"
             name="description"
             id="description"
+            maxLength={180}
             placeholder="Brief description"
             value={data.description}
             onChange={handleChange}

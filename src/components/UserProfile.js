@@ -12,9 +12,10 @@ export default function UserProfile(props) {
     skills,
   } = props.data;
 
-  // const avatar = "https://thispersondoesnotexist.com/image";
-  const avatar = `https://eu.ui-avatars.com/api/?name=${fullname}`;
-  // const avatar = "https://robohash.org/whatever";
+  let r = (Math.random() + 1).toString(36).substring(7);
+  const avatar = "https://thispersondoesnotexist.com/image";
+  // const avatar = `https://eu.ui-avatars.com/api/?name=${fullname}`;
+  // const avatar = `https://robohash.org/${r}`;
 
   return (
     <div className="profile">

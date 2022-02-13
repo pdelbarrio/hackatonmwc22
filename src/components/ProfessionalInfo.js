@@ -94,53 +94,57 @@ export default function ProfessionalInfo({ next, prev, data, setData }) {
   };
 
   return (
-    <div className="form">
+    <div className="form-prof">
       <form className="">
-        <label htmlFor="experience">Years of experience</label>
-        <div className="field_input">
-          <input
-            type="number"
-            name="experience"
-            id="experience"
-            placeholder="Experience"
-            value={data.experience}
-            onChange={handleChange}
-          />
-          {errors.experience && <p className="error">{errors.experience}</p>}
-        </div>
+        <div className="form-prof-main">
+          <label htmlFor="experience">Years of experience</label>
+          <div className="field-input">
+            <input
+              type="number"
+              name="experience"
+              id="experience"
+              placeholder="Experience"
+              value={data.experience}
+              onChange={handleChange}
+            />
+            {errors.experience && <p className="error">{errors.experience}</p>}
+          </div>
 
-        <label htmlFor="sector">Sector</label>
-        <div className="field_input">
-          <select
-            name="sector"
-            value={data.sector}
-            onChange={handleChange}
-            style={{ display: "block" }}
-          >
-            <option value="" label="Select your sector" />
-            <option value="Frontend" label="Frontend" />
-            <option value="Backend" label="Backend" />
-            <option value="Mobile" label="Mobile" />
-            <option value="Data Science" label="Data Science" />
-          </select>
-          {errors.sector && <p className="error">{errors.sector}</p>}
+          <label htmlFor="sector">Sector</label>
+          <div className="field-input">
+            <select
+              name="sector"
+              value={data.sector}
+              onChange={handleChange}
+              style={{ display: "block" }}
+            >
+              <option value="" label="Select your sector" />
+              <option value="Frontend" label="Frontend" />
+              <option value="Backend" label="Backend" />
+              <option value="Mobile" label="Mobile" />
+              <option value="Data Science" label="Data Science" />
+            </select>
+            {errors.sector && <p className="error">{errors.sector}</p>}
+          </div>
         </div>
-        <label htmlFor="skills">Skills</label>
-        <div className="tags_input">
-          <TagsInput />
-        </div>
-        <div className="error-container">
-          {formError && (
-            <p style={{ color: "red" }}>All fields must be filled in</p>
-          )}
-        </div>
-        <div className="footer">
-          <button type="button" onClick={() => prev(data)}>
-            Back
-          </button>
-          <button type="button" onClick={handleSubmit}>
-            Submit
-          </button>
+        <div className="form-prof-sec">
+          <label htmlFor="skills">Skills</label>
+          <div className="tags_input">
+            <TagsInput />
+          </div>
+          <div className="error-container">
+            {formError && (
+              <p style={{ color: "red" }}>All fields must be filled in</p>
+            )}
+          </div>
+          <div className="footer">
+            <button type="button" onClick={() => prev(data)}>
+              Back
+            </button>
+            <button type="button" onClick={handleSubmit}>
+              Submit
+            </button>
+          </div>
         </div>
       </form>
     </div>

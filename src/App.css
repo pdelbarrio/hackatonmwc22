@@ -27,17 +27,6 @@ body {
   font-weight: 900;
 }
 
-.form {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 11px;
-  font-weight: bold;
-}
-
 .form-container {
   width: 400px;
   height: 500px;
@@ -75,13 +64,31 @@ body {
 .form-personal {
   padding-top: 50px;
   width: 100%;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: 11px;
-  font-weight: bold;
   justify-content: normal;
+}
+.form-prof {
+  padding-top: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 11px;
+
+  justify-content: normal;
+}
+.form-prof-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.form-prof-sec {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .personal-data {
   height: 300px;
@@ -100,15 +107,6 @@ body {
   height: 100%;
   background-color: rgb(194, 182, 22);
 }
-
-/* input {
-  border: 2px solid rgb(138, 152, 155);
-  border-radius: 5px;
-}
-
-input:focus {
-  border: 3px solid rgb(192, 194, 66);
-} */
 
 .description-input {
   height: 50px;
@@ -165,17 +163,17 @@ input:focus {
 }
 .tag-list {
   width: auto;
-  height: 32px;
+  height: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
   padding: 0 6px;
-  font-size: 14px;
   list-style: none;
-  border-radius: 6px;
+  border-radius: 4px;
   margin: 0 8px 8px 0;
   background: #79808a;
+  font-size: 10px;
 }
 .tag-title {
   margin-top: 3px;
@@ -208,10 +206,10 @@ input:focus {
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  align-items: stretch;
+  align-items: center;
   font-size: 11px;
   font-weight: 100 !important;
+  padding-left: 50px;
 }
 .profile-title {
   font-weight: bold;
@@ -219,16 +217,22 @@ input:focus {
 }
 .profile-section {
   display: flex;
-  /* align-items: flex-end; */
-  justify-content: space-between;
+  align-items: stretch;
+  justify-content: center;
   padding: 5px;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 .profile-main {
+  display: flex;
+  flex-direction: column;
 }
 .profile-skills {
   border: 1px solid gray;
   border-radius: 5px;
 }
-.avatar {
-  height: 10px;
+
+img {
+  height: 10vh;
 }
