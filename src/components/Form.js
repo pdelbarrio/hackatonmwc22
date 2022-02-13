@@ -19,7 +19,7 @@ export default function Form() {
 
   const FormTitles = ["Personal Info", "Professional Info", "User Profile"];
 
-  const handleNextStep = (newData) => {
+  const handleNextStep = () => {
     setStep((prev) => prev + 1);
   };
 
