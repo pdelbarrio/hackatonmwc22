@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import csc from "country-state-city";
-import * as Yup from "yup";
 
 export default function PersonalInfo({ next, data, setData }) {
   const [errors, setErrors] = useState({
@@ -37,21 +35,6 @@ export default function PersonalInfo({ next, data, setData }) {
   const isValid = () => {
     return !Object.keys(errors).some((key) => errors[key] !== undefined);
   };
-  // const countries = csc.getAllCountries();
-
-  // const updatedCountries = countries.map((country) => ({
-  //     label: country.name,
-  //     value: country.id,
-  //     ...country
-  // }));
-
-  // const updatedStates = (countryId) =>
-  //     csc.getStatesOfCountry(countryId).map((state) => ({ label: state.name, value: state.id, ...state}));
-
-  // const updatedCities = (stateId) =>
-  //     csc.getCitiesOfState(stateId).map((city) => ({ label: city.name, value: city.id, ...city }));
-
-  // useEffect(() => {}, [values])
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -107,34 +90,7 @@ export default function PersonalInfo({ next, data, setData }) {
           />
           {errors.description && <p className="error">{errors.description}</p>}
         </div>
-        {/* <div>
-                <Select
-                        id="country"
-                        name="country"
-                        label="country"
-                        options={updatedCountries}
-                        value={values.country}
-                        onChange={(value) => {
-                            setValues({ country: value, state: null, city: null}, false);
-                        }}
-                    />
-                    <Select
-                        id="state"
-                        name="state"
-                        options={updatedStates(values.country ? values.country.value : null)}                
-                        value={values.state}
-                        onChange={(value) => {
-                            setValues({ state: value, city: null }, false);
-                        }}
-                    />
-                    <Select 
-                        id="city"
-                        name="city"
-                        options={updatedCities(values.state ? values.state.value :  null)}                
-                        value={values.city}
-                        onChange={(value) => setFieldValue("city", value)}
-                    />
-                </div> */}
+
         <div>
           <label htmlFor="country">Country</label>
           <div className="field-input">
@@ -159,11 +115,11 @@ export default function PersonalInfo({ next, data, setData }) {
               onChange={handleChange}
             />
             {errors.city && <p className="error">{errors.city}</p>}
+            {formError && <p className="error">All fields must be filled in</p>}
           </div>
         </div>
 
         <div className="footer">
-          {formError && <p className="error">All fields must be filled in</p>}
           <button type="button" onClick={handleSubmit}>
             Next
           </button>

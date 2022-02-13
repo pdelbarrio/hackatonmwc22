@@ -10,7 +10,6 @@ export default function Form() {
     fullname: "",
     description: "",
     country: "",
-    // state: "",
     city: "",
     experience: "",
     sector: "",

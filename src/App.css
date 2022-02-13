@@ -84,6 +84,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 .form-prof-sec {
   display: flex;
@@ -206,7 +207,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   font-size: 11px;
   font-weight: 100 !important;
   padding-left: 50px;
@@ -214,6 +215,11 @@ body {
 .profile-title {
   font-weight: bold;
   color: gray !important;
+}
+.profile-title-country {
+  font-weight: bold;
+  color: gray !important;
+  padding-right: 70px;
 }
 .profile-section {
   display: flex;
@@ -224,15 +230,44 @@ body {
   flex-wrap: wrap;
   flex-direction: column;
 }
-.profile-main {
-  display: flex;
-  flex-direction: column;
+.profile-title-experience {
+  font-weight: bold;
+  color: gray !important;
+  padding-right: 50px;
 }
-.profile-skills {
+.profile-title-email {
+  font-weight: bold;
+  color: gray !important;
+  padding-right: 80px;
+}
+.profile-skills-border {
   border: 1px solid gray;
   border-radius: 5px;
 }
+.profile-avatar {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 20px;
+}
+.profile-email-fullname {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 10px;
+}
 
+.profile-description {
+  padding-bottom: 10px;
+}
+.profile-country-city {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 10px;
+}
+.profile-experience-sector {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 10px;
+}
 img {
   height: 10vh;
 }
