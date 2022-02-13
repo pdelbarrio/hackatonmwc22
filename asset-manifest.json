@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/hackatonmwc22/static/css/main.e76724c9.css",
+    "main.js": "/hackatonmwc22/static/js/main.2958f420.js",
+    "static/js/787.7803c6f4.chunk.js": "/hackatonmwc22/static/js/787.7803c6f4.chunk.js",
+    "static/media/background.jpg": "/hackatonmwc22/static/media/background.b6225c694b51504e0e4d.jpg",
+    "index.html": "/hackatonmwc22/index.html",
+    "main.e76724c9.css.map": "/hackatonmwc22/static/css/main.e76724c9.css.map",
+    "main.2958f420.js.map": "/hackatonmwc22/static/js/main.2958f420.js.map",
+    "787.7803c6f4.chunk.js.map": "/hackatonmwc22/static/js/787.7803c6f4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e76724c9.css",
+    "static/js/main.2958f420.js"
+  ]
+}
